@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cherry After Dark — For Connor</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@300;400&family=Vazirmatn:wght@300;400;500;600&display=swap');
+:root{--bg:#09090b;--panel:#111114;--panel2:#171518;--cherry:#741d35;--cherry2:#a33b55;--silver:#c7c4c6;--muted:#8d888d;--line:rgba(205,197,202,.16);--cream:#e9dfd9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 70% 0%,#28131b 0%,transparent 38%),radial-gradient(ellipse at 0% 60%,#15151b 0%,transparent 40%),var(--bg);color:var(--cream);font-family:'Cormorant Garamond',serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.14;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+a,button{color:inherit}
+button{font:inherit;cursor:pointer}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px clamp(18px,5vw,70px);background:linear-gradient(#09090be8,transparent);backdrop-filter:blur(7px)}
+.brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.23em;text-transform:uppercase;color:#c8aeb5}
+nav .links{display:flex;gap:clamp(10px,2.5vw,32px);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+nav a{text-decoration:none;color:#c0b8bc;transition:color .3s}nav a:hover{color:#d97b92}
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:110px 20px 70px;isolation:isolate}
+.hero:before{content:"";position:absolute;width:min(66vw,660px);height:min(66vw,660px);border-radius:50%;background:radial-gradient(circle at 40% 40%,#3c1a28 0%,#1a1018 38%,#0a090c 68%);box-shadow:0 0 100px #51172b2b,inset -35px -20px 70px #000;z-index:-1;animation:float 9s ease-in-out infinite}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(1px 1px at 12% 22%,#f5dfe7 99%,transparent),radial-gradient(1px 1px at 77% 18%,#fff 99%,transparent),radial-gradient(2px 2px at 85% 64%,#b45d75 99%,transparent),radial-gradient(1px 1px at 25% 78%,#fff 99%,transparent),radial-gradient(1px 1px at 66% 83%,#e4c4ce 99%,transparent);opacity:.7;z-index:-1}
+.eyebrow{font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.28em;color:#ba7b8c;font-size:10px}
+h1{font-weight:400;font-size:clamp(56px,10vw,120px);line-height:.88;margin:25px 0 24px;letter-spacing:-.045em}
+h1 em{color:#b95b75;font-weight:400}
+.hero p{font-size:clamp(19px,2.2vw,26px);max-width:560px;margin:0 auto;color:#c7bdc1;line-height:1.5}
+.hero .tiny{font-size:12px;letter-spacing:.08em;color:#8e858b;margin-top:34px}
+.pill{border:1px solid #6f3446;background:#1a0e14;color:#e5cfd5;padding:13px 23px;letter-spacing:.1em;font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;margin-top:27px;transition:.3s}
+.pill:hover{background:#632038;border-color:#b45b74;transform:translateY(-2px)}
+.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.22em;color:#766d73}
+section{position:relative;z-index:1;padding:100px clamp(18px,7vw,110px);max-width:1250px;margin:auto}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:34px}
+.kicker{font:10px 'DM Mono',monospace;letter-spacing:.2em;color:#b26c80;text-transform:uppercase}
+h2{font-size:clamp(38px,6vw,66px);font-weight:400;margin:9px 0 0;line-height:1}
+.section-head p{max-width:340px;color:#a7a0a4;font-size:18px;line-height:1.4;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{min-height:220px;padding:25px;background:linear-gradient(145deg,#1b171b,#0e0e11);border:1px solid var(--line);position:relative;overflow:hidden;transition:.35s;cursor:pointer}
+.card:before{content:"";position:absolute;inset:auto -40px -80px auto;width:160px;height:160px;background:radial-gradient(circle,#76223a33,transparent 70%);transition:.35s}
+.card:hover{transform:translateY(-5px);border-color:#713248}.card:hover:before{background:radial-gradient(circle,#a33b5555,transparent 70%)}
+.card .num{font:10px 'DM Mono',monospace;color:#b46c81}.card h3{font-size:31px;font-weight:400;margin:36px 0 10px}.card p{font-size:17px;color:#a9a0a5;line-height:1.45;margin:0}
+.card .arrow{position:absolute;right:23px;bottom:19px;color:#c77b8f}
+.note-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.note{padding:25px;border:1px solid #30252b;background:#120f13;min-height:145px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.3s}
+.note:hover{background:#21131a;border-color:#8b3b53}.note span{font:9px 'DM Mono',monospace;letter-spacing:.15em;color:#a86c7c}.note p{font-size:25px;line-height:1.15;margin:20px 0 0}
+.secret-box{border:1px solid #4e2936;background:linear-gradient(135deg,#1b1016,#0d0d10);padding:clamp(25px,5vw,55px);text-align:center;position:relative;overflow:hidden}
+.secret-box:before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#76243a26,transparent 70%);pointer-events:none}
+.lock-icon{font-size:28px;color:#b86c82}
+.secret-box h3{font-size:40px;font-weight:400;margin:15px 0 8px}.secret-box p{font-size:18px;color:#aaa0a6;max-width:500px;margin:0 auto 24px}
+.code{display:flex;justify-content:center;gap:9px;margin:22px 0}.code input{width:52px;height:60px;background:#09090b;border:1px solid #51404a;color:#f1dce2;text-align:center;font:24px 'Cormorant Garamond',serif;outline:none}.code input:focus{border-color:#b65a75;box-shadow:0 0 15px #6f243a55}
+.error{height:18px;color:#cf8094;font:11px 'DM Mono',monospace}
+.letter-content{display:none;text-align:left;max-width:820px;margin:45px auto 0;animation:fade .8s ease}.letter-content.open{display:block}
+.letter-paper{background:linear-gradient(135deg,#e7ddd5,#d3c6c2);color:#282126;padding:clamp(24px,5vw,58px);box-shadow:0 15px 60px #0008;position:relative}
+.letter-paper:before{content:"";position:absolute;inset:12px;border:1px solid #9e858a;pointer-events:none}
+.letter-paper h3{text-align:center;font-size:35px;margin:0 0 26px;font-weight:500}.letter-paper p{font-size:20px;line-height:1.58;margin:0 0 18px;position:relative}.letter-paper .sign{text-align:right;margin-top:28px;font-style:italic}
+.lang-toggle{display:flex;justify-content:center;gap:10px;margin:20px 0}.lang-toggle button{border:1px solid #7d4557;background:transparent;padding:11px 17px;font:10px 'DM Mono',monospace;letter-spacing:.1em;color:#d6bfc6}.lang-toggle button.active,.lang-toggle button:hover{background:#612037}
+.persian{display:none;direction:rtl;font-family:'Vazirmatn',sans-serif}.persian.show{display:block}.persian p{font-size:16px;line-height:2.15}.persian h3{font-family:'Vazirmatn',sans-serif;font-size:24px}
+.english.hide{display:none}
+.date-reveal{display:none;text-align:center;margin:42px auto 0;padding:35px 20px;border-top:1px solid var(--line);animation:fade 1s ease}.date-reveal.show{display:block}.date-reveal .date{font-size:clamp(52px,9vw,88px);color:#bc647c;letter-spacing:.12em}.date-reveal p{font-size:22px;max-width:570px;margin:10px auto;color:#c8bdc2;line-height:1.5}
+.footer{text-align:center;padding:70px 20px 40px;color:#746d73;font-size:15px;position:relative;z-index:1}.footer strong{display:block;color:#a85a70;font-size:23px;font-weight:400;margin-bottom:10px}
+.modal{display:none;position:fixed;inset:0;background:#050507eF;z-index:30;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal-inner{max-width:600px;width:100%;background:#151116;border:1px solid #693044;padding:clamp(25px,5vw,48px);position:relative;animation:fade .35s}.modal-inner h3{font-size:39px;font-weight:400;margin:0 0 18px}.modal-inner p{font-size:21px;line-height:1.55;color:#d1c4ca}.close{position:absolute;top:14px;right:17px;border:0;background:transparent;color:#c9a9b3;font-size:23px}
+.hidden-msg{opacity:0;transition:opacity .5s}.hidden-msg.revealed{opacity:1}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.detail-modal{display:none;position:fixed;inset:0;background:#050507ef;z-index:35;align-items:center;justify-content:center;padding:18px;overflow-y:auto}.detail-modal.open{display:flex}.detail-inner{width:min(760px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#191217,#0c0c10);border:1px solid #6c3448;padding:clamp(24px,5vw,48px);position:relative;animation:fade .35s}.detail-inner h3{font-size:clamp(32px,5vw,46px);font-weight:400;margin:0 35px 22px 0;color:#e8dce0}.detail-inner p{font-size:20px;line-height:1.65;color:#d2c5ca;white-space:pre-line;margin:0 0 16px}.detail-inner .fa-copy{display:none;direction:rtl;text-align:right;font-family:'Vazirmatn',sans-serif;font-size:16px;line-height:2.1}.detail-inner .fa-copy.show{display:block}.detail-inner .en-copy.hide{display:none}.detail-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:25px}.detail-actions button{border:1px solid #7d4557;background:#160e13;padding:10px 16px;font:10px 'DM Mono',monospace;letter-spacing:.08em;color:#e5cfd5}.detail-actions button:hover{background:#612037}.star-row{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.star-card{min-height:220px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px 18px;border:1px solid #34232c;background:radial-gradient(ellipse at 50% 25%,#30131f,#100e12 70%);cursor:pointer;transition:.35s}.star-card:hover,.star-card.found{border-color:#9b4b64;box-shadow:0 0 30px #76243a33;transform:translateY(-3px)}.star-orb{width:14px;height:14px;border-radius:50%;background:#a5a0a7;box-shadow:0 0 20px #b4adb966;margin-bottom:24px;transition:.4s}.star-card.found .star-orb{background:#c65d7c;box-shadow:0 0 28px #c65d7caa}.star-card h3{font-size:29px;font-weight:400;margin:0 0 10px}.star-card p{font-size:16px;color:#a99da4;line-height:1.45;margin:0}.constellation-result{display:none;margin:28px auto 0;padding:25px;text-align:center;border-top:1px solid var(--line);animation:fade .8s}.constellation-result.show{display:block}.constellation-result p{font-size:clamp(23px,4vw,32px);line-height:1.4;color:#e0c5ce;max-width:680px;margin:0 auto 20px}.softer-star{margin-top:28px;padding:28px;border:1px solid #4b2b38;background:linear-gradient(135deg,#1b1117,#0d0d10);display:flex;align-items:center;gap:22px;cursor:pointer}.softer-star .star-orb{flex-shrink:0;margin:0 8px}.softer-star h3{font-size:27px;font-weight:400;margin:0 0 7px}.softer-star p{font-size:16px;color:#a99da4;margin:0;line-height:1.5}.date-letter{max-width:740px;margin:30px auto 0;text-align:left;background:linear-gradient(145deg,#191217,#0c0c10);border:1px solid #55303d;padding:clamp(24px,4vw,42px);color:#e3d5db}.date-letter p{font-size:19px;line-height:1.65;margin:0 0 16px}.date-letter .sign{text-align:right;color:#d79bad}.micro-label{font:9px 'DM Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#b26c80;margin-bottom:12px}
+@media(max-width:720px){.star-row{grid-template-columns:1fr}.star-card{min-height:160px}.softer-star{align-items:flex-start}.detail-inner p{font-size:17px}.date-letter p{font-size:17px}}
+
+@media(max-width:720px){nav{padding:15px 16px}.brand{font-size:8px}nav .links{gap:10px;font-size:8px}.cards{grid-template-columns:1fr}.card{min-height:180px}.note-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:15px}.code input{width:43px;height:54px}.letter-paper p{font-size:17px}.persian p{font-size:14px}section{padding-top:75px;padding-bottom:75px}}
+
+/* GALAXY / CINEMATIC PAGE-BY-PAGE REDESIGN */
+/* Interactive miniature solar system on the opening page */
+.orbit-system{position:relative;width:min(460px,82vw);height:min(290px,53vw);min-height:210px;margin:20px auto 0;isolation:isolate}
+.orbit{position:absolute;left:50%;top:43%;border:1px solid #b9a2df2c;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+.orbit-a{width:44%;height:44%;transform:translate(-50%,-50%) rotate(-24deg)}
+.orbit-b{width:70%;height:67%;transform:translate(-50%,-50%) rotate(28deg)}
+.orbit-c{width:98%;height:88%;transform:translate(-50%,-50%) rotate(-12deg)}
+.planet{pointer-events:auto;position:absolute;width:18px;height:18px;border:0;border-radius:50%;padding:0;cursor:pointer;box-shadow:0 0 15px currentColor,0 0 35px currentColor55;transition:transform .25s,box-shadow .25s;animation:planetPulse 3s ease-in-out infinite}
+.planet:hover{transform:scale(1.45);box-shadow:0 0 22px currentColor,0 0 48px currentColor88}
+.planet-one{left:14%;top:8%;background:radial-gradient(circle at 30% 25%,#ffe4f2,#c777d4 44%,#4d2b81 78%);color:#ca8be7}
+.planet-two{right:11%;top:10%;width:13px;height:13px;background:radial-gradient(circle at 30% 25%,#f8d4f2,#c36b9b 48%,#59254c);color:#d77bab;animation-delay:-1s}
+.planet-three{left:49%;bottom:-3%;width:11px;height:11px;background:radial-gradient(circle at 30% 25%,#fff1cf,#d5a96b 50%,#705036);color:#d9b47c;animation-delay:-2s}
+.orbit-hint{position:absolute;left:0;right:0;bottom:0;font:8px 'DM Mono',monospace;letter-spacing:.18em;color:#9183b3;text-align:center}
+@keyframes planetPulse{0%,100%{filter:brightness(.9)}50%{filter:brightness(1.35)}}
+@media(max-width:520px){.orbit-system{height:210px}.orbit-a{width:48%;height:43%}.orbit-b{width:76%;height:64%}.orbit-c{width:100%;height:82%}.planet{width:15px;height:15px}}
+
+html,body{height:100%;overflow:hidden;background:#03040b}
+body{background:radial-gradient(ellipse at 50% 45%,#10122b 0%,#070812 42%,#020309 100%);color:#eee8f6}
+body:before{opacity:.06;z-index:1}
+#starfield{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.nebula{position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(55px);opacity:.26;mix-blend-mode:screen;animation:nebulaDrift 18s ease-in-out infinite alternate}
+.nebula-one{width:65vw;height:50vw;left:-22vw;top:10vh;background:radial-gradient(ellipse,#48225f 0%,#20275a 35%,transparent 72%)}
+.nebula-two{width:70vw;height:55vw;right:-25vw;bottom:-22vh;background:radial-gradient(ellipse,#5b183c 0%,#29205c 38%,transparent 72%);animation-delay:-8s}
+@keyframes nebulaDrift{from{transform:translate3d(-2vw,-2vh,0) scale(.95)}to{transform:translate3d(4vw,3vh,0) scale(1.08)}}
+nav.galaxy-nav{background:linear-gradient(#03040bdc,transparent);backdrop-filter:blur(12px);border-bottom:1px solid #b7a6d51c}
+.brand{color:#d6c5f3;letter-spacing:.25em}
+.page-counter{font:10px 'DM Mono',monospace;letter-spacing:.2em;color:#b7a8d5}
+header.hero,section,.footer{display:none;position:fixed;inset:0;max-width:none;width:100%;height:100dvh;min-height:100dvh;margin:0;padding:100px clamp(20px,7vw,100px) 100px;overflow-y:auto;overscroll-behavior:contain;z-index:2;scrollbar-width:thin;scrollbar-color:#66517d transparent;animation:pageIn .7s ease both}
+header.hero.active,section.active,.footer.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:scale(1.015) translateY(10px);filter:blur(3px)}to{opacity:1;transform:scale(1) translateY(0);filter:blur(0)}}
+.hero{isolation:isolate;text-align:center;align-content:center;padding-top:100px;padding-bottom:115px}
+.hero:before{width:min(76vw,780px);height:min(76vw,780px);background:radial-gradient(circle at 40% 38%,#4d3b78 0%,#282044 20%,#111426 48%,#080914 70%);box-shadow:0 0 120px #7861b42c,0 0 250px #29285d3a,inset -45px -30px 80px #020309;opacity:.92}
+.hero:after{opacity:.22}
+.eyebrow,.kicker{color:#c1a5ed}
+h1{font-size:clamp(64px,11vw,132px);letter-spacing:-.055em;text-shadow:0 0 45px #c7a3ff30}
+h1 em{color:#d69abf;text-shadow:0 0 36px #a953a555}
+.hero p{color:#d5cce7}
+.hero .tiny,.scroll{color:#aaa0c4;letter-spacing:.18em}
+.pill{border:1px solid #8b72b6;background:#18162d99;color:#f0e8ff;border-radius:999px;padding:14px 25px;letter-spacing:.14em;box-shadow:0 0 25px #6d4eaa18;backdrop-filter:blur(10px)}
+.pill:hover{background:#392858;border-color:#d0b6ff;box-shadow:0 0 30px #8e64d855}
+section{background:radial-gradient(ellipse at 50% 30%,#17142b70,transparent 58%)}
+.section-head{border-bottom-color:#c6b4e426}
+.section-head p,.card p,.note span,.note p,.star-card p,.softer-star p{color:#b5abc9}
+h2{color:#f0e7fb}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card,.note,.star-card,.softer-star,.secret-box,.date-letter{background:linear-gradient(145deg,#17152abf,#090b17d9);border:1px solid #8b76b52e;box-shadow:inset 0 1px #ffffff07,0 15px 45px #0002;backdrop-filter:blur(10px);border-radius:18px}
+.card{min-height:190px;padding:24px 27px}
+.card:before{background:radial-gradient(circle,#8c5fba25,transparent 70%)}
+.card:hover,.note:hover,.star-card:hover,.star-card.found{border-color:#c5a4ed88;box-shadow:0 0 35px #8b5bc52c;transform:translateY(-4px)}
+.card .num,.micro-label{color:#c1a5ed}
+.card h3,.note p,.star-card h3,.softer-star h3{color:#eee6fa}
+.note{min-height:150px}
+.secret-box{padding:clamp(28px,5vw,55px)}
+.secret-box:before{background:radial-gradient(circle,#6d55a426,transparent 70%)}
+.secret-box h3{color:#eee5fb}
+.secret-box p{color:#bfb5d1}
+.star-card{min-height:210px}
+.star-orb{background:#c1b4df;box-shadow:0 0 22px #c8b5ff88}
+.star-card.found .star-orb{background:#f1b7d4;box-shadow:0 0 30px #e68fca}
+.constellation-result p,.date-reveal .date{color:#e3b8df;text-shadow:0 0 28px #aa70d444}
+.letter-paper{background:linear-gradient(145deg,#171725,#0c0d18 72%,#15101e);color:#e9e2f3;border:1px solid #75618f80;border-radius:14px;box-shadow:0 18px 70px #0009,0 0 45px #8c5fc21c}
+.letter-paper:before{border-color:#8c76a455;border-radius:8px}
+.letter-paper h3{color:#f0e4ff;text-shadow:0 0 25px #a878d522}
+.letter-paper p{color:#d8cfe5}
+.letter-paper strong{color:#f4d4e8}
+.letter-paper .sign{color:#d9a9d4}
+.lang-toggle button,.detail-actions button{border-color:#8d77b6;background:#171329;color:#eee6fa;border-radius:999px}
+.lang-toggle button.active,.lang-toggle button:hover,.detail-actions button:hover{background:#473364}
+.date-letter{color:#e3d5ef}
+.date-letter .sign{color:#e3b8df}
+.page-next{position:fixed;z-index:12;bottom:22px;left:50%;transform:translateX(-50%);border:1px solid #aa8acb80;border-radius:999px;background:#100e20d9;color:#e9ddfa;padding:14px 23px;font:10px 'DM Mono',monospace;letter-spacing:.18em;white-space:nowrap;box-shadow:0 0 35px #8e5fc226;backdrop-filter:blur(12px);transition:.3s}
+.page-next span{font-size:16px;margin-left:12px;color:#e3b8df}
+.page-next:hover{background:#302249;border-color:#dfc4ff;box-shadow:0 0 40px #a67ae655}
+.hero .page-next{bottom:24px}
+section .page-next{position:sticky;display:block;margin:35px auto 0;left:auto;bottom:auto;transform:none}
+.room-next{position:sticky!important}
+.footer{align-content:center;text-align:center;color:#b5abc9}
+.footer strong{color:#e3b8df;font-size:30px}
+.modal,.detail-modal{background:#03040bdc;backdrop-filter:blur(18px)}
+.modal-inner,.detail-inner{background:linear-gradient(145deg,#17152b,#080a15);border:1px solid #9d80c66b;border-radius:18px;box-shadow:0 20px 100px #0008}
+.modal-inner p,.detail-inner p{color:#ded4ed}
+.close{color:#d8c0f1}
+@media(max-width:720px){header.hero,section,.footer{padding:85px 17px 95px}.cards{grid-template-columns:1fr}.card{min-height:155px}.card h3{margin:22px 0 8px}.star-row{grid-template-columns:1fr}.star-card{min-height:130px}.section-head{display:block}.section-head p{margin-top:13px}.page-next{bottom:12px;padding:12px 17px;font-size:9px;letter-spacing:.12em}.softer-star{align-items:flex-start}.brand{font-size:8px}.page-counter{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+</style>
+</head>
+<body>
+<canvas id="starfield" aria-hidden="true"></canvas><div class="nebula nebula-one"></div><div class="nebula nebula-two"></div>
+<nav class="galaxy-nav">
+  <span class="brand">CHERRY AFTER DARK</span>
+  <span class="page-counter" id="pageCounter">01 / 05</span>
+</nav>
+<header class="hero" id="home">
+  <div>
+    <div class="eyebrow">a little world made for one person</div>
+    <h1>For <em>Connor.</em></h1>
+    <p>A little universe made from the things I notice.<br>And the things I never want you to forget.</p>
+    <button class="pill" onclick="goToPage(1)">Enter my little universe</button>
+    <div class="tiny">MADE FOR YOU. TAKE YOUR TIME.</div>
+    <div class="orbit-system" aria-label="Three hidden planets. Click each one to discover a private note.">
+      <div class="orbit orbit-a"><button class="planet planet-one" aria-label="Open the first hidden planet" onclick="event.stopPropagation();openPlanet(0)"></button></div>
+      <div class="orbit orbit-b"><button class="planet planet-two" aria-label="Open the second hidden planet" onclick="event.stopPropagation();openPlanet(1)"></button></div>
+      <div class="orbit orbit-c"><button class="planet planet-three" aria-label="Open the third hidden planet" onclick="event.stopPropagation();openPlanet(2)"></button></div>
+      <div class="orbit-hint">THREE WORLDS ARE WAITING TO BE FOUND</div>
+    </div>
+  </div>
+  <div class="scroll">CLICK TO TRAVEL</div>
+  <button class="page-next" onclick="goToPage(1)">ENTER THE GALAXY <span>↗</span></button>
+</header>
+
+<section id="discover">
+  <div class="section-head"><div><div class="kicker">01 / The things you don't notice</div><h2>A museum of you.</h2></div><p>Four little truths I wish you could see the way I do. Open each one when you're ready.</p></div>
+  <div class="cards">
+    <article class="card" onclick="openDetail(0)"><span class="num">POINT 01</span><h3>The way you care</h3><p>The little things that never feel little to me.</p><span class="arrow">↗</span></article>
+    <article class="card" onclick="openDetail(1)"><span class="num">POINT 02</span><h3>Your eyes</h3><p>A warm honey-brown kind of unfair.</p><span class="arrow">↗</span></article>
+    <article class="card" onclick="openDetail(2)"><span class="num">POINT 03</span><h3>All your little things</h3><p>The details that make you unmistakably you.</p><span class="arrow">↗</span></article>
+    <article class="card" onclick="openDetail(3)" style="grid-column:1/-1;min-height:175px"><span class="num">POINT 04 / THE LAST ONE</span><h3>If you could see yourself</h3><p>Not perfect. Not someone else. Just you, through my eyes.</p><span class="arrow">↗</span></article>
+  </div>
+  <div class="softer-star" onclick="openSofterStar()"><span class="star-orb"></span><div><div class="micro-label">A NOTE TO KEEP</div><h3>A little reminder, for the harder days.</h3><p>For the moments when you're asking too much of yourself.</p></div></div>
+<button class="page-next" onclick="goToPage(2)">FOLLOW THE NEXT STAR <span>↗</span></button>
+</section>
+
+<section id="letters">
+  <div class="section-head"><div><div class="kicker">02 / A quiet corner</div><h2>Stay a little.</h2></div><p>This place isn't asking you to be anything. Wander around, open what you find, and take whatever you need with you.</p></div>
+  <div class="secret-box" style="padding:clamp(28px,5vw,50px)"><div class="eyebrow">A SMALL TRUTH</div><h3 style="font-size:clamp(30px,5vw,44px)">You don't have to earn being loved.</h3><p style="margin-bottom:0">Not on your best days. Not on the days you feel impossible to understand. Not on the days when all you can do is get through them.</p></div>
+<button class="page-next" onclick="goToPage(3)">KEEP EXPLORING <span>↗</span></button>
+</section>
+
+<section id="secrets">
+  <div class="section-head"><div><div class="kicker">03 / Secret constellations</div><h2>Three things only we know.</h2></div><p>Find all three quiet points. When you do, they'll connect into one little constellation.</p></div>
+  <div class="star-row">
+    <article class="star-card" id="star0" onclick="findStar(0)"><span class="star-orb"></span><h3>The Almost</h3><p>A little curiosity that became us.</p></article>
+    <article class="star-card" id="star1" onclick="findStar(1)"><span class="star-orb"></span><h3>The Word</h3><p>A tiny key to a very big memory.</p></article>
+    <article class="star-card" id="star2" onclick="findStar(2)"><span class="star-orb"></span><h3>Still Here</h3><p>A little piece of your day, saved for me.</p></article>
+  </div>
+  <div class="constellation-result" id="constellationResult"><p>Somewhere along the way, you became my favorite part of every day.</p><button class="pill" onclick="goToPage(4)">Follow the last little light</button></div>
+<button class="page-next" onclick="goToPage(4)">FIND THE HIDDEN DOOR <span>↗</span></button>
+</section>
+
+<section id="room">
+  <div class="section-head"><div><div class="kicker">04 / Behind the locked door</div><h2>The secret room.</h2></div><p>One little code. One letter made for your birthday. Take your time in here.</p></div>
+  <div class="secret-box">
+    <div class="lock-icon" aria-hidden="true" style="width:24px;height:29px;border:1px solid #b86c82;border-radius:14px 14px 4px 4px;margin:0 auto 18px;position:relative"><span style="position:absolute;width:8px;height:7px;border:1px solid #b86c82;border-bottom:0;border-radius:8px 8px 0 0;left:7px;top:-8px"></span></div>
+    <div class="eyebrow">THIS DOOR IS YOURS</div>
+    <h3>A little something, Connor.</h3>
+    <p>Enter the date that opens this room. There is no rush. The secret is waiting.</p>
+    <div class="code" aria-label="Enter four digit code">
+      <input inputmode="numeric" maxlength="1" aria-label="Digit 1"><input inputmode="numeric" maxlength="1" aria-label="Digit 2"><input inputmode="numeric" maxlength="1" aria-label="Digit 3"><input inputmode="numeric" maxlength="1" aria-label="Digit 4">
+    </div>
+    <button class="pill" onclick="unlock()">Open the door</button>
+    <div class="error" id="error"></div>
+    <div class="letter-content" id="letterContent">
+      <div class="eyebrow" style="text-align:center;margin-bottom:12px">A LETTER FOR YOUR BIRTHDAY</div>
+      <div class="letter-paper">
+        <div class="english" id="englishLetter">
+          <h3>To Connor, on the day the world got you.</h3>
+          <p>Before you were someone I loved, you were someone the world was lucky to have.</p>
+          <p>Maybe you have never stopped long enough to think about how valuable your existence was even before someone fell in love with you. You do not have to do anything, prove anything, or become a better version of yourself to be worthy of love. You do not have to be extraordinary to deserve an extraordinary amount of love.</p>
+          <p><strong>You are not supposed to become a perfect person before you are allowed to love yourself.</strong></p>
+          <p>I want you to know something, Connor. You are not only the parts of yourself that other people see and admire. You are not just your laughter, your beautiful moments, or the times you look strong. You are not even just the version of yourself you think you have to show the world.</p>
+          <p>You are everything you say out loud and every word you hold back before it reaches your lips. The days you feel proud of yourself and the days when even being yourself feels difficult. The moments when you want to take on the world, and the moments when you just want to step away from everything for a while.</p>
+          <p>None of that makes you less valuable.</p>
+          <p>I do not want you to be strong all the time. I do not want you to always know what to do or manage everything on your own. I do not want you to become so used to putting yourself back together that you forget you are allowed to simply be tired, sad, or in need of rest.</p>
+          <p><strong>You do not have to put yourself back together before anyone notices that you are breaking.</strong></p>
+          <p>When you get tired of yourself, I hope you treat yourself with the same kindness you would give someone you deeply love. When you make a mistake, I hope you let yourself learn instead of punishing yourself for it. When you are afraid, I hope you do not call yourself weak. And when you cannot handle everything, I hope you do not mistake that for not being good enough.</p>
+          <p>You are not a project that needs to be completed before you deserve to feel good about yourself.</p>
+          <p>You are a human being. You are allowed to change, make mistakes, feel lost, get tired, and have days when you do not know exactly who you are or what you want. And still, you deserve love.</p>
+          <p>More than anything, I hope you become a safe place for yourself. A place where, when the world is unkind to you, you do not become another voice adding to it. A place you can return to without being afraid of what you will find.</p>
+          <p>I hope you never spend so much time trying to become someone worth loving that you forget you were worthy of love all along.</p>
+          <p>There is something else I want you to know — something I may never manage to say perfectly every day.</p>
+          <p>One of the loveliest things to me is the part of you I get to see when you are with me. The way you say yourself that you act differently with me. Knowing there is a corner of your world where I have my own place, where I do not have to compete with anyone or keep asking myself whether I matter to you.</p>
+          <p>Maybe I cannot hold your hand through a screen or read your face to understand everything going on in your mind, but sometimes I can feel your care even from this distance. That is not a small thing to me.</p>
+          <p>I do not want to know only the version of you that is always ready to be seen. I hope, with time, you feel safer beside me — safe enough that when your heart feels heavy, you do not have to think a thousand times about how you will look before you speak.</p>
+          <p>You do not have to explain why you are sad or present an acceptable reason for what you feel. You do not have to find a solution before you are allowed to talk. Sometimes you can just speak. You can say you are tired, you can say you are scared, or you can simply not know why you do not feel okay.</p>
+          <p>I cannot promise I will always have the right answer or be able to fix everything. But I can listen, try to understand you, and remind you that you do not have to be okay all the time for me to stay beside you.</p>
+          <p>Because what matters to me is not only your easy, beautiful moments. It is you — even on the days when you do not know how to make sense of yourself.</p>
+          <p>If I could wish only one thing for your future, it would be that one day you see yourself with the same worth I see in you. Not because I love you, and not because someone told you that you matter, but because you have come to believe it yourself, independently of anyone else.</p>
+          <p>I want you to love yourself on the days when nobody notices. When nobody praises you. When you do not reach the thing you wanted. Even when you disappoint yourself.</p>
+          <p>I want you to know that your worth does not rise and fall with your successes, and it does not disappear because of your mistakes.</p>
+          <p>Connor, I hope this year you are kinder to yourself than you were before. I hope you force yourself less and give yourself permission more. I hope you experience things that make you happy, keep people around whom you can be yourself with, and slowly learn that you do not have to achieve everything before you are allowed to rest, breathe, and feel happy.</p>
+          <p>And when you look back one day, I hope you are proud not only of what you achieved, but of the person you were along the way. Of yourself, with all the parts you are still discovering.</p>
+          <p class="sign">Happy birthday, my little prince.<br>I am truly, deeply glad the world got you.</p>
+        </div>
+        <div class="persian" id="persianLetter" lang="fa">
+          <h3>به کانر، در روزی که دنیا تو را به دست آورد</h3>
+          <p>قبل از اینکه تو کسی باشی که من دوستش دارم، کسی بودی که دنیا خوش‌شانس بود که به دستش آورد.</p>
+          <p>و شاید هیچ‌وقت به اندازهٔ کافی به این فکر نکرده باشی که وجود داشتن تو، حتی پیش از اینکه کسی عاشقت بشه، به‌خودی‌خود ارزشمند بوده. تو برای اینکه دوست‌داشتنی باشی، لازم نیست کاری انجام بدی، چیزی رو ثابت کنی یا به نسخهٔ بهتری از خودت تبدیل بشی. لازم نیست فوق‌العاده باشی تا لایق عشقی فوق‌العاده باشی.</p>
+          <p><strong>تو قرار نیست اول به آدم کاملی تبدیل بشی و بعد اجازه داشته باشی خودت رو دوست داشته باشی.</strong></p>
+          <p>می‌خوام یه چیزی رو بدونی، کانر. تو فقط اون بخش‌هایی از خودت نیستی که بقیه می‌بینن و تحسین می‌کنن. تو فقط خنده‌هات، لحظه‌های قشنگت یا وقت‌هایی که قوی به نظر می‌رسی نیستی. تو حتی اون تصویری هم نیستی که فکر می‌کنی باید از خودت به بقیه نشون بدی.</p>
+          <p>تو تمام چیزهایی هستی که با صدای بلند می‌گی و تمام حرف‌هایی که قبل از گفتن، توی گلوت نگه می‌داری. روزهایی که از خودت راضی‌ای و روزهایی که حتی تحمل کردن خودت برات سخت می‌شه. وقت‌هایی که می‌خوای دنیا رو به دست بیاری و وقت‌هایی که فقط می‌خوای برای مدتی از همه‌چیز فاصله بگیری.</p>
+          <p>و هیچ‌کدوم از این‌ها باعث نمی‌شن ارزش تو کمتر بشه.</p>
+          <p>نمی‌خوام همیشه قوی باشی. نمی‌خوام همیشه بدونی باید چیکار کنی یا همیشه بتونی همه‌چیز رو به‌تنهایی مدیریت کنی. نمی‌خوام اون‌قدر به جمع‌کردن تکه‌های خودت عادت کنی که یادت بره گاهی می‌تونی فقط خسته باشی، فقط ناراحت باشی، فقط به استراحت نیاز داشته باشی.</p>
+          <p><strong>تو لازم نیست هر بار که می‌شکنی، قبل از اینکه کسی متوجه بشه، خودت رو دوباره جمع‌وجور کنی.</strong></p>
+          <p>و اگه یه روزی از خودت خسته شدی، امیدوارم با خودت همون‌قدر مهربون باشی که با کسی که عمیقاً دوستش داری مهربونی. امیدوارم وقتی اشتباه می‌کنی، به‌جای اینکه خودت رو بابتش تنبیه کنی، به خودت فرصت بدی که یاد بگیری. وقتی از چیزی می‌ترسی، خودت رو ضعیف ندونی. و وقتی نمی‌تونی از پس همه‌چیز بربیای، فکر نکنی که به‌اندازهٔ کافی خوب نیستی.</p>
+          <p>تو یه پروژه نیستی که باید کامل بشه تا بالاخره لایق احساس خوب نسبت به خودش باشه.</p>
+          <p>تو یه انسانی. انسانی که حق داره تغییر کنه، اشتباه کنه، گیج بشه، خسته بشه و حتی بعضی روزها ندونه دقیقاً کیه یا چی می‌خواد. و بااین‌حال، همچنان لایق محبته.</p>
+          <p>بیشتر از هر چیزی، امیدوارم یه روز به جایی برسی که خونهٔ امن خودت باشی. جایی که وقتی دنیا باهات مهربون نیست، مجبور نباشی خودت هم بهش اضافه بشی. جایی که بتونی به خودت برگردی، بدون اینکه از چیزی که می‌بینی بترسی.</p>
+          <p>و امیدوارم هیچ‌وقت اون‌قدر مشغول تلاش برای تبدیل شدن به آدمی دوست‌داشتنی نشی که فراموش کنی از همون اول هم دوست‌داشتنی بودی.</p>
+          <p>یه چیز دیگه هم هست که دلم می‌خواد بدونی؛ چیزی که شاید نتونم هر روز به شکل درست و کاملی بهت بگم.</p>
+          <p>یکی از قشنگ‌ترین چیزها برای من، اون بخشی از توئه که فقط وقتی با منی می‌بینمش. همون رفتاری که خودت هم می‌گی با من فرق داره. اینکه می‌دونم یه گوشه از دنیات هست که من توش جای خودم رو دارم؛ جایی که لازم نیست برای بودن توش با کسی رقابت کنم یا مدام از خودم بپرسم واقعاً برات مهمم یا نه.</p>
+          <p>شاید از پشت یه صفحه نتونم دستت رو بگیرم یا از روی صورتت بفهمم دقیقاً چه چیزی توی ذهنت می‌گذره، اما بعضی وقت‌ها محبتت رو حتی از همین فاصله هم حس می‌کنم. و برای من، این چیز کوچیکی نیست.</p>
+          <p>من نمی‌خوام فقط اون نسخه‌ای از تو رو بشناسم که همیشه آمادهٔ نشون دادنشه. دلم می‌خواد با گذشت زمان، کنار من بیشتر احساس امنیت کنی؛ اون‌قدر که اگه یه روز دلت پر بود، لازم نباشه قبل از حرف زدن هزار بار فکر کنی که چطور به نظر می‌رسی.</p>
+          <p>نمی‌خوام مجبور باشی همیشه توضیح بدی چرا ناراحتی یا برای احساست دلیل قابل‌قبولی ارائه کنی. لازم نیست هر بار که چیزی اذیتت می‌کنه، از قبل راه‌حلش رو هم پیدا کرده باشی. گاهی می‌تونی فقط حرف بزنی. می‌تونی بگی خسته‌ای، می‌تونی بگی می‌ترسی، می‌تونی حتی ندونی چرا حالت خوب نیست.</p>
+          <p>من نمی‌تونم قول بدم همیشه جواب درستی داشته باشم یا بتونم همه‌چیز رو درست کنم. اما می‌تونم بهت گوش بدم، سعی کنم بفهممت و بهت یادآوری کنم که لازم نیست برای اینکه کنارت بمونم، همیشه حالت خوب باشه.</p>
+          <p>چون چیزی که برای من ارزشمنده، فقط لحظه‌های آسون و قشنگ تو نیست. خود تویی؛ حتی در روزهایی که خودت نمی‌دونی چطور باید با خودت کنار بیای.</p>
+          <p>و اگه قرار باشه فقط یه آرزو برای آینده‌ات داشته باشم، اینه که یه روز خودت رو با همون ارزشی ببینی که من در تو می‌بینم. نه چون من دوستت دارم و نه چون کسی بهت گفته ارزشمندی؛ بلکه چون خودت، مستقل از هر آدم دیگه‌ای، به این باور رسیده باشی.</p>
+          <p>می‌خوام خودت رو دوست داشته باشی، حتی در روزهایی که هیچ‌کس حواسش نیست. حتی وقتی کسی تحسینت نمی‌کنه. حتی وقتی به چیزی که می‌خواستی نمی‌رسی. حتی وقتی از خودت ناامید می‌شی.</p>
+          <p>می‌خوام بدونی که ارزش تو با موفقیت‌هات بالا و پایین نمی‌ره و با اشتباهاتت از بین نمی‌ره.</p>
+          <p>کانر، امیدوارم امسال بیشتر از قبل با خودت مهربون باشی. امیدوارم کمتر خودت رو مجبور کنی و بیشتر به خودت اجازه بدی. امیدوارم چیزهایی رو تجربه کنی که خوشحالت می‌کنن، آدم‌هایی رو کنار خودت داشته باشی که بتونی پیششون خودت باشی و کم‌کم یاد بگیری که برای استراحت کردن، نفس کشیدن و احساس خوشبختی، لازم نیست اول همه‌چیز رو به دست آورده باشی.</p>
+          <p>و وقتی یه روز به عقب نگاه کردی، امیدوارم فقط به چیزهایی که به دست آوردی افتخار نکنی؛ به آدمی هم که در تمام این مسیر بودی افتخار کنی. به خودت، با تمام بخش‌هایی که هنوز داری کشفشون می‌کنی.</p>
+          <p class="sign">تولدت مبارک، شازده کوچولو.<br>من واقعاً، از ته دلم، خوشحالم که دنیا تو رو به دست آورد.</p>
+        </div>
+      </div>
+      <div class="lang-toggle">
+        <button id="enBtn" class="active" onclick="setLanguage('en')">ORIGINAL · ENGLISH</button>
+        <button id="faBtn" onclick="setLanguage('fa')">ترجمهٔ فارسی</button>
+      </div>
+      <div class="date-reveal" id="dateReveal">
+        <div class="eyebrow">AND ONE MORE DATE</div>
+        <div class="date">17 · 03</div>
+        <div class="date-letter">
+          <div class="micro-label">A LETTER ABOUT MY HEART</div>
+          <p>Connor, I wish you could borrow my heart for just one minute. Not to hear me say I love you, but to finally feel what those words mean when they come from me.</p>
+          <p>Do you know what stays with me? The fact that even when you're surrounded by your friends, even when you have a whole life happening around you, you still check your phone for me. Someone once told me you took your phone to the pool just so you could talk to me, and babe, you have no idea how deeply that stayed with me.</p>
+          <p>Maybe to you, it was just something you did. But to me, it was a little piece of proof that somewhere in your busy day, there was still a place for me. And I don't think I'll ever stop finding that beautiful.</p>
+          <p>I notice these things, sweetheart. I carry them with me. Your goodnight messages, the little moments when you make time for me, the ways you remind me that distance doesn't mean I'm forgotten. You probably don't even realize how much love I find in them.</p>
+          <p>And I need you to know something, too. My love for you isn't a game, a passing feeling, or something I want to use against you. I don't want to be the reason your heart learns to be afraid. I want to be someone you can love without having to wonder when it'll start hurting.</p>
+          <p>I can't promise that we'll never have difficult days. But I can promise that loving you is never something I want to turn into a weapon. Your heart matters to me, Connor. Not just when everything is easy, but especially when it isn't.</p>
+          <p>If you could feel my heart for even one minute, I think you'd understand why I treasure the smallest things you do, why I keep choosing you, and why the thought of hurting you is the last thing I ever want.</p>
+          <p class="sign">I love you, babe. Not just enough to say it a thousand times, but enough to want you to feel safe believing me.</p>
+        </div>
+        <button class="pill" onclick="openModal('One last thing…','If you ever forget how loved you are, come back here. You do not have to be perfect with me. You can be honest, you can be tired, and you can tell me when something hurts. I want us to keep learning how to love each other gently.')">One last thing…</button>
+      </div>
+    </div>
+  </div>
+<button class="page-next room-next" onclick="document.getElementById('room').scrollTo({top:document.getElementById('room').scrollHeight,behavior:'smooth'})">GO TO THE LAST LETTER <span>↗</span></button>
+</section>
+<div class="footer"><strong>For Connor, always.</strong>Made of little truths, quiet wishes, and a thousand things left unsaid.<br><span style="font:9px 'DM Mono',monospace;letter-spacing:.18em">CHERRY AFTER DARK · 0908</span></div>
+
+<div class="detail-modal" id="detailModal" onclick="if(event.target===this)closeDetail()"><div class="detail-inner"><button class="close" onclick="closeDetail()" aria-label="Close">×</button><div class="micro-label">A THING I NOTICE ABOUT YOU</div><h3 id="detailTitle"></h3><div class="en-copy" id="detailEnglish"></div><div class="fa-copy" id="detailPersian" lang="fa"></div><div class="detail-actions"><button id="detailLangButton" onclick="toggleDetailLanguage()">READ IN PERSIAN</button><button onclick="closeDetail()">KEEP THIS WITH YOU</button></div></div></div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal-inner"><button class="close" onclick="closeModal()" aria-label="Close">×</button><div class="eyebrow">A LITTLE THING TO KEEP</div><h3 id="modalTitle"></h3><p id="modalText"></p><button class="pill" onclick="closeModal()">Keep this with you</button></div></div>
+<script>
+const pageIds=['home','discover','letters','secrets','room'];
+let activePage=0;
+function goToPage(index){
+  const target=Math.max(0,Math.min(index,pageIds.length-1));
+  document.querySelectorAll('header.hero,section,.footer').forEach(el=>el.classList.remove('active'));
+  const page=document.getElementById(pageIds[target]);
+  if(page){page.classList.add('active');page.scrollTop=0;}
+  activePage=target;
+  document.getElementById('pageCounter').textContent=String(target+1).padStart(2,'0')+' / 05';
+  document.querySelectorAll('.page-next').forEach(btn=>{if(btn.classList.contains('room-next')){btn.innerHTML='GO TO THE LAST LETTER <span>↗</span>';return;} if(btn.closest('#'+pageIds[target])){btn.style.display='';} });
+}
+goToPage(0);
+// A living star field: distant pinpricks, a few brighter stars, and slow parallax drift.
+(function(){
+ const canvas=document.getElementById('starfield'),ctx=canvas.getContext('2d');let w,h,dpr,stars=[],tick=0;
+ function resize(){dpr=Math.min(window.devicePixelRatio||1,2);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);stars=Array.from({length:Math.min(260,Math.floor(w*h/4200))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.35+.15,a:Math.random()*.65+.2,s:Math.random()*.012+.002,phase:Math.random()*Math.PI*2,drift:(Math.random()-.5)*.12}));}
+ function draw(){ctx.clearRect(0,0,w,h);tick+=1;for(const st of stars){const alpha=st.a*(.72+.28*Math.sin(tick*st.s+st.phase));ctx.beginPath();ctx.fillStyle='rgba(231,220,255,'+alpha+')';ctx.arc(st.x,st.y,st.r,0,Math.PI*2);ctx.fill();st.x+=st.drift;if(st.x<0)st.x=w;if(st.x>w)st.x=0;}requestAnimationFrame(draw)}
+ resize();window.addEventListener('resize',resize);draw();
+})();
+
+const planetNotes=[
+ {title:'A place in your day',text:'You probably think a goodnight message is a small thing. I hope you know that to me, it feels like you saved a little corner of your day just for me. I carry that feeling with me long after the message ends.'},
+ {title:'The little things stay',text:'I remember the things you might forget you ever did. Like checking your phone for me even when you were with your friends. You make me feel thought of in the smallest moments, and those moments mean more to me than you know.'},
+ {title:'A safe kind of love',text:'I never want you to feel like you have to be afraid of my love. I want you to be able to trust it, to be yourself around it, and to know that your heart matters to me.'}
+];
+function openPlanet(i){openModal(planetNotes[i].title,planetNotes[i].text)}
+
+const details = [
+ {title:'The Way You Care',en:`I don't think you realize how much the things you do for me mean to me.
+
+You have this way of making me feel cared for, sometimes without even realizing you're doing it. And I wish you could see what I see in those little things. The things that might seem ordinary to you can mean more to me than you could ever imagine.
+
+It's not always about the biggest gestures or the most beautiful words. Sometimes, it's simply knowing that you thought of me. That you cared enough to do something, to ask, to remember, to make an effort.
+
+You give me so many little reasons to feel lucky to have you, and I hope you never underestimate how much those things matter to me.`,fa:`فکر نمی‌کنم خودت بدونی کارهایی که برای من انجام می‌دی چقدر برام ارزش دارن.
+
+تو یه جوری بهم احساس اهمیت داشتن می‌دی که گاهی حتی خودت هم متوجهش نیستی. کاش می‌تونستی چیزهایی رو ببینی که من توی همین رفتارهای کوچیکت می‌بینم. چیزهایی که شاید برای تو معمولی باشن، برای من بیشتر از چیزی که تصور کنی معنا دارن.
+
+همیشه حرف از بزرگ‌ترین کارها یا قشنگ‌ترین جمله‌ها نیست. گاهی همین کافیه که بدونم به فکرم بودی؛ اینکه برات مهم بود کاری انجام بدی، چیزی بپرسی، چیزی رو یادت بمونه یا تلاشی بکنی.
+
+تو با همین چیزهای کوچیک، بارها بهم دلیل دادی که از داشتنت خوش‌شانس باشم. امیدوارم هیچ‌وقت دست‌کم نگیری که این کارها چقدر برام مهمن.`},
+ {title:'Your Eyes',en:`Your eyes are genuinely unfair, Connor.
+
+The roundness of them, that warm honey-brown color, the way they catch the light. I could spend forever looking at them and still find something new to love.
+
+But I think what would really ruin me is seeing them look at me in person. Imagining you standing right in front of me, looking at me with those eyes, is already enough to make me lose my mind a little.
+
+And that little spark in them? The one that appears sometimes and makes them look even more alive? You have absolutely no idea what that does to me.
+
+I wish you could borrow my eyes for a moment. Not because you need to change anything about yourself, but because I want you to understand why I find you so beautiful.`,fa:`چشم‌هات واقعاً بی‌انصافن، کانر.
+
+گردی‌شون، اون رنگ گرم عسلی‌قهوه‌ای، و اینکه چطور نور رو توی خودشون می‌گیرن. می‌تونم تا ابد بهشون نگاه کنم و هنوز چیز تازه‌ای برای دوست داشتن توشون پیدا کنم.
+
+ولی فکر کنم چیزی که واقعاً منو از پا درمیاره، اینه که یه روز از نزدیک نگاهم کنی. همین تصور اینکه درست روبه‌روم وایسادی و با اون چشم‌ها نگاهم می‌کنی، به‌تنهایی کافیه که یه کم عقل از سرم بپره.
+
+و اون برق کوچیک توی چشم‌هات؟ همونی که گاهی ظاهر می‌شه و زنده‌ترشون می‌کنه؟ اصلاً نمی‌دونی با من چیکار می‌کنه.
+
+کاش می‌تونستی برای یه لحظه با چشم‌های من به خودت نگاه کنی. نه چون لازم داری چیزی رو توی خودت تغییر بدی، بلکه چون می‌خوام بفهمی چرا از نظر من این‌قدر زیبایی.`},
+ {title:'All Your Little Things',en:`There are so many things about you that make me want to pull you close and never let go.
+
+Your sweet little personality. Your soft-looking chestnut hair that I swear makes me want to bury my face in it. Even the thought of how good and clean it must smell makes me want to be there beside you already.
+
+And then there's the way you get when you're excited about something. When you start explaining something to me with all that enthusiasm, you become so unbearably adorable that I genuinely don't know what to do with myself. You probably think you're just talking, just telling me something you find interesting. Meanwhile, I'm sitting there, falling for you all over again.
+
+It's such a small thing, maybe. Something you probably don't even think twice about. But I do.
+
+I notice you, Connor. Even in the moments when you're simply being yourself and have no idea how much I love watching you be that way.`,fa:`این‌قدر چیز توی تو هست که دلم می‌خواد بکِشمت توی بغلم و دیگه ولت نکنم.
+
+شخصیت شیرینت. موهای شاه‌بلوطی و نرمت که قسم می‌خورم دلم می‌خواد صورتم رو توشون پنهون کنم. حتی فکر کردن به اینکه احتمالاً چقدر بوی خوب و تمیزی می‌دن، باعث می‌شه دلم بخواد همین الان کنارت باشم.
+
+و بعد می‌رسیم به وقتی که دربارهٔ چیزی ذوق داری. وقتی با اون همه اشتیاق شروع می‌کنی چیزی رو برام توضیح دادن، اون‌قدر دوست‌داشتنی می‌شی که واقعاً نمی‌دونم با خودم چیکار کنم. احتمالاً فکر می‌کنی فقط داری حرف می‌زنی و چیزی رو که برات جالبه تعریف می‌کنی؛ درحالی‌که من همون‌جا دوباره دارم عاشقت می‌شم.
+
+شاید چیز کوچیکی باشه؛ چیزی که حتی دوبار هم بهش فکر نمی‌کنی. ولی من فکر می‌کنم.
+
+من متوجهت می‌شم، کانر. حتی وقتی فقط خودتی و اصلاً نمی‌دونی من چقدر عاشق تماشای همین خودِ واقعیتم.`},
+ {title:'If You Could See Yourself',en:`I wish you could see yourself through my eyes, just for a little while.
+
+Not because I think you need someone else to tell you who you are, but because there are things about you that I don't think you fully appreciate.
+
+The way you care. The warmth in your eyes. The sweetness in your personality. The way your whole energy changes when something makes you excited.
+
+I don't love these things because they're perfect. I love them because they're yours.
+
+And maybe you don't notice every little thing that makes you special. Maybe some of them seem too ordinary to count. But I notice.
+
+I notice more than you think, and I fall in love with the smallest things about you more often than I could ever explain.
+
+You don't have to do anything extraordinary for me to adore you, babe. You just have to be you.`,fa:`کاش می‌تونستی فقط برای یه مدت کوتاه، خودت رو از چشم‌های من ببینی.
+
+نه چون فکر می‌کنم به کسی نیاز داری که بهت بگه کی هستی؛ چون چیزهایی توی تو هست که فکر نمی‌کنم خودت به اندازهٔ کافی قدرشون رو بدونی.
+
+طرز اهمیت دادنت. گرمای چشم‌هات. شیرینی شخصیتت. اینکه وقتی چیزی ذوقت رو برمی‌انگیزه، تمام انرژی‌ات عوض می‌شه.
+
+من این چیزها رو به خاطر بی‌نقص بودنشون دوست ندارم. دوستشون دارم چون مال توئن.
+
+شاید متوجه تک‌تک چیزهایی که خاصت می‌کنن نباشی. شاید بعضی‌هاشون اون‌قدر معمولی به نظر بیان که اصلاً به حسابت نیان. ولی من متوجهشون می‌شم.
+
+بیشتر از چیزی که فکر کنی می‌بینمت، و بیشتر از چیزی که بتونم توضیح بدم، با کوچک‌ترین چیزهای وجودت دوباره عاشقت می‌شم.
+
+لازم نیست برای اینکه عاشقت باشم کار خارق‌العاده‌ای انجام بدی، شازده کوچولو. فقط خودت باش.`}
+];
+const stars=[
+ {title:'The Almost',en:`It started with something so small: matching profiles, a few conversations, and a curiosity that kept finding reasons to stay. Somewhere between the teasing and the talking, you stopped being just someone I was getting to know. And on 17·03, I finally asked if we could be something more. I still love that our story didn't arrive all at once. It grew, little by little, until it became ours.`,fa:`همه‌چیز با چیز کوچیکی شروع شد: پروفایل‌های ست، چندتا گفت‌وگو و کنجکاوی‌ای که هی بهونه‌ای برای موندن پیدا می‌کرد. یه جایی بین شوخی‌ها و حرف زدن‌هامون، دیگه فقط کسی نبودی که داشتم می‌شناختمش. و در 17·03 بالاخره ازت پرسیدم می‌تونیم چیزی بیشتر از این باشیم یا نه. هنوزم دوست دارم که داستان ما یک‌دفعه شروع نشد؛ کم‌کم رشد کرد تا شد مال ما.`},
+ {title:'The Word',en:`“Hayf shod.” Just two words, and the little key to finding the messages where I asked you to be mine. Maybe they don't mean anything special on their own. But now they lead back to a moment I never want to lose: the moment I stopped keeping the question to myself and finally asked for you.`,fa:`«حیف شد». فقط دو کلمه‌ست؛ یه کلید کوچیک برای پیدا کردن پیام‌هایی که توش ازت خواستم با هم باشیم. شاید خود این کلمه‌ها به‌تنهایی معنی خاصی نداشته باشن، اما حالا منو برمی‌گردونن به لحظه‌ای که نمی‌خوام هیچ‌وقت گمش کنم: لحظه‌ای که دیگه سؤالم رو توی دلم نگه نداشتم و بالاخره تو رو خواستم.`},
+ {title:'Still Here',en:`Since the beginning, you've found little ways to leave a piece of your day with me. A goodnight, sometimes a good morning, a quick check of your phone even when you're with your friends. You may think it's ordinary. I don't. It makes me feel like even with distance and a thousand things going on, you still save a little corner of your day for me. I treasure that more than I know how to explain.`,fa:`از همون اول، تو راه‌های کوچیکی پیدا کردی که یه تکه از روزت رو با من شریک بشی. یه شب‌بخیر، گاهی یه صبح‌بخیر، یا حتی یه نگاه سریع به گوشیت وقتی کنار دوست‌هاتی. شاید برای تو معمولی باشه، ولی برای من نیست. باعث می‌شه حس کنم با وجود فاصله و هزار تا اتفاقی که توی روزت می‌افته، هنوز یه گوشه از روزت رو برای من نگه می‌داری. بیشتر از چیزی که بتونم توضیح بدم، قدرش رو می‌دونم.`}
+];
+let currentDetail=0,detailLang='en',foundStars=new Set();
+function openDetail(i){currentDetail=i;detailLang='en';document.getElementById('detailTitle').textContent=details[i].title;document.getElementById('detailEnglish').textContent=details[i].en;document.getElementById('detailPersian').textContent=details[i].fa;document.getElementById('detailEnglish').classList.remove('hide');document.getElementById('detailPersian').classList.remove('show');document.getElementById('detailLangButton').textContent='READ IN PERSIAN';document.getElementById('detailModal').classList.add('open')}
+function toggleDetailLanguage(){detailLang=detailLang==='en'?'fa':'en';document.getElementById('detailEnglish').classList.toggle('hide',detailLang==='fa');document.getElementById('detailPersian').classList.toggle('show',detailLang==='fa');document.getElementById('detailLangButton').textContent=detailLang==='fa'?'READ IN ENGLISH':'READ IN PERSIAN'}
+function closeDetail(){document.getElementById('detailModal').classList.remove('open')}
+function openSofterStar(){openModal('A little reminder',`I know you. I know how much you expect from yourself, how easily a difficult day can turn into a reason to be disappointed in yourself, and how sometimes you forget that you're allowed to be a person, too.
+
+You don't have to earn your rest. You don't have to turn every bad day into a lesson. You don't have to prove that you're trying hard enough by making things harder for yourself.
+
+I know you want to do well. I know there are things you want to achieve, and I'm never going to ask you to stop caring about them. I just wish you'd remember that you're allowed to care about yourself just as much.
+
+You can take a break, sweetheart. You can have a day when nothing goes right. You can be proud of yourself before you've accomplished everything you planned to do. None of those things make you less capable. They make you human.
+
+I'm not asking you to become a different person. I'm just asking you to be a little gentler with the person you already are. Because I love that person, too.`)}
+function findStar(i){if(foundStars.has(i)){openDetailStar(i);return}foundStars.add(i);document.getElementById('star'+i).classList.add('found');openDetailStar(i);if(foundStars.size===3){document.getElementById('constellationResult').classList.add('show')}}
+function openDetailStar(i){const st=stars[i];openModal(st.title,st.en+'\n\n'+st.fa)}
+function openModal(title,text){document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=text;document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+const inputs=[...document.querySelectorAll('.code input')];
+inputs.forEach((input,i)=>{input.addEventListener('input',()=>{input.value=input.value.replace(/\D/g,'').slice(-1);if(input.value&&inputs[i+1])inputs[i+1].focus()});input.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!input.value&&inputs[i-1])inputs[i-1].focus();if(e.key==='Enter')unlock()})});
+function unlock(){const code=inputs.map(i=>i.value).join('');if(code==='0908'){document.getElementById('error').textContent='';document.getElementById('letterContent').classList.add('open');document.getElementById('letterContent').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>document.getElementById('dateReveal').classList.add('show'),900)}else{document.getElementById('error').textContent='Not this key. Try the date that belongs to you.';inputs.forEach(i=>i.value='');inputs[0].focus()}}
+function setLanguage(lang){const en=document.getElementById('englishLetter'),fa=document.getElementById('persianLetter');en.classList.toggle('hide',lang==='fa');fa.classList.toggle('show',lang==='fa');document.getElementById('enBtn').classList.toggle('active',lang==='en');document.getElementById('faBtn').classList.toggle('active',lang==='fa')}
+</script>
+</body>
+</html>
